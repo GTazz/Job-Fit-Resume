@@ -1,0 +1,10 @@
+{
+  "mainStack": "Example: React, Node.js, Python",
+  "projectName": "Example: Intelligent Resume Platform",
+  "projectDescription": "Example: Web application that automatically generates and customizes resumes according to the job position, using AI to analyze the job description.",
+  "projectRepo": "https://github.com/gtazz",
+  "experienceDescription": "Example: Full Stack Developer at XYZ Company",
+  "relevantStack": "Example: React, TailwindCSS, Node.js, FastAPI, PostgreSQL, Docker",
+  "collegeSkills": "Example: Web Development, Databases, Data Structures",
+  "courseSkills": "Example: Python, Java, C++, Advanced Algorithms"
+}
