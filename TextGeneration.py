@@ -4,19 +4,24 @@ from dotenv import load_dotenv
 import json
 from copy import deepcopy
 from openai import OpenAI, BadRequestError, AuthenticationError, RateLimitError
+from openai.types.chat import ChatCompletionMessage
+
 
 class TextGeneration():
     
-    # Constant variables
-    MODELS = [".1", ".1-mini", ".1-nano", "o", "o-mini"]
-    PROMPT_FILENAME = "aiConfig.md"
-    VARIABLES_FILENAME = "cv_variables.json"
-    TEMPLATE_FILENAME = "template.docx"
-        
-    def __init__(self):
+    # Constant variables:
+    MODELS: list[str] = [".1", ".1-mini", ".1-nano", "o", "o-mini"] # Available model versions
+    PROMPT_FILENAME: str = "aiConfig.md" # System prompt file
+    VARIABLES_FILENAME: str = "cv_variables.json" # CV variables and context file
+    TEMPLATE_FILENAME: str = "template.docx" # Resume template file
 
-        # Variables declaration
-        self.ai_raw_response = None  # Raw AI response
+    # General variables declaration
+    current_model: str = MODELS[0] # Default model version
+    model: str = "openai/gpt-4" + current_model # Default model
+    client: OpenAI = None # OpenAI client
+    ai_raw_response: ChatCompletionMessage = None  # Raw AI response
+
+    def __init__(self):
 
         # Sequential execution of steps
         self.setup()
@@ -40,9 +45,6 @@ class TextGeneration():
         AI_API_TOKEN = os.getenv("AI_API_TOKEN")
 
         endpoint = "https://models.github.ai/inference"
-
-        self.current_model = self.MODELS[0]
-        self.model = "openai/gpt-4" + self.current_model
 
         self.client = OpenAI(
             base_url=endpoint,
