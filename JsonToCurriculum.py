@@ -5,7 +5,7 @@ from typing import Dict, Any
 from docxtpl import DocxTemplate, RichText
 
 
-class Main:
+class JsonToCurriculum:
     """Generate resume (DOCX + PDF) using docxtpl and external JSON config.
 
     Steps executed sequentially in __init__:
@@ -99,4 +99,4 @@ class Main:
 
 
 if __name__ == "__main__":
-    Main()
+    JsonToCurriculum()
