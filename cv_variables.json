@@ -1,10 +1,10 @@
 {
-  "mainStack": "Example: React, Node.js, Python",
-  "projectName": "Example: Intelligent Resume Platform",
-  "projectDescription": "Example: Web application that automatically generates and customizes resumes according to the job position, using AI to analyze the job description.",
-  "projectRepo": "https://github.com/gtazz",
-  "experienceDescription": "Example: Full Stack Developer at XYZ Company",
-  "relevantStack": "Example: React, TailwindCSS, Node.js, FastAPI, PostgreSQL, Docker",
-  "collegeSkills": "Example: Web Development, Databases, Data Structures",
-  "courseSkills": "Example: Python, Java, C++, Advanced Algorithms"
+    "collegeSkills": "Durante o curso técnico em Mecatrônica pelo SENAI, desenvolvi competências essenciais como pensamento analítico, resolução de problemas complexos e integração de sistemas, o que ampliou minha visão interdisciplinar para projetos de tecnologia.",
+    "courseSkills": "No curso, adquiri sólida base em automação, eletrônica e programação aplicada, habilidades que complementam minha atuação em desenvolvimento de software, especialmente na análise de sistemas e integração com hardware.",
+    "experienceDescription": "Atuei como Desenvolvedor Full Stack na Tech Solutions Ltda., sendo responsável pelo desenvolvimento de aplicações web escaláveis e integrando APIs RESTful, experiência que alinhou minhas habilidades técnicas à entrega colaborativa de projetos. Na InovaTI, como Analista de Sistemas, realizei levantamento de requisitos, implementei melhorias em sistemas legados e ofereci suporte técnico aos usuários, aprimorando minha capacidade de entender demandas de negócio e fornecer soluções eficientes.",
+    "mainStack": "Tenho domínio das principais stacks utilizadas em desenvolvimento web, incluindo React, Node.js, Django, Flutter, além de bancos de dados como MongoDB e PostgreSQL.",
+    "projectName": "Gerenciador de Tarefas",
+    "projectDescription": "Desenvolvi e mantenho o projeto Gerenciador de Tarefas, aplicando tecnologias como React, Node.js e MongoDB para criar uma plataforma eficiente de organização e acompanhamento de tarefas.",
+    "projectRepo": "https://github.com/fakeuser/task-manager",
+    "relevantStack": "React, Node.js, MongoDB"
 }
