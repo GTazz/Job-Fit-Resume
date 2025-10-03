@@ -21,13 +21,13 @@ class JsonToCurriculum:
     TEMPLATE_FILENAME = "template.docx"
     OUTPUT_DOCX = "final_cv.docx"  # keeping original filenames
     OUTPUT_PDF = "final_cv.pdf"
+    base_dir: Path = Path(__file__).parent
+    docx_path: Path = base_dir / OUTPUT_DOCX
+    pdf_path: Path = base_dir / OUTPUT_PDF
+    cv_variables: Dict[str, Any] = {}
+    template: DocxTemplate = None
 
     def __init__(self) -> None:
-        self.base_dir: Path = Path(__file__).parent
-        self.cv_variables: Dict[str, Any] = {}
-        self.template: DocxTemplate = None
-        self.docx_path: Path = self.base_dir / self.OUTPUT_DOCX
-        self.pdf_path: Path = self.base_dir / self.OUTPUT_PDF
 
         # Sequential execution of steps
         self.load_cv_variables()
