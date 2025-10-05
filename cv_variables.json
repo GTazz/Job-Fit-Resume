@@ -1,10 +1,10 @@
 {
-    "collegeSkills": "Durante o curso técnico em Mecatrônica pelo SENAI, desenvolvi competências essenciais como pensamento analítico, resolução de problemas complexos e integração de sistemas, o que ampliou minha visão interdisciplinar para projetos de tecnologia.",
-    "courseSkills": "No curso, adquiri sólida base em automação, eletrônica e programação aplicada, habilidades que complementam minha atuação em desenvolvimento de software, especialmente na análise de sistemas e integração com hardware.",
-    "experienceDescription": "Atuei como Desenvolvedor Full Stack na Tech Solutions Ltda., sendo responsável pelo desenvolvimento de aplicações web escaláveis e integrando APIs RESTful, experiência que alinhou minhas habilidades técnicas à entrega colaborativa de projetos. Na InovaTI, como Analista de Sistemas, realizei levantamento de requisitos, implementei melhorias em sistemas legados e ofereci suporte técnico aos usuários, aprimorando minha capacidade de entender demandas de negócio e fornecer soluções eficientes.",
-    "mainStack": "Tenho domínio das principais stacks utilizadas em desenvolvimento web, incluindo React, Node.js, Django, Flutter, além de bancos de dados como MongoDB e PostgreSQL.",
-    "projectName": "Gerenciador de Tarefas",
-    "projectDescription": "Desenvolvi e mantenho o projeto Gerenciador de Tarefas, aplicando tecnologias como React, Node.js e MongoDB para criar uma plataforma eficiente de organização e acompanhamento de tarefas.",
-    "projectRepo": "https://github.com/fakeuser/task-manager",
-    "relevantStack": "React, Node.js, MongoDB"
+    "collegeSkills": "O curso de Ciência da Computação forneceu sólida base em estatística, algoritmos, aprendizado de máquina e programação, essenciais para atuar em equipes de Data Science, além de familiaridade com métodos quantitativos utilizados na modelagem e previsão de dados.",
+    "courseSkills": "O curso técnico de Engenharia Mecatrônica proporcionou visão prática de integração entre software e hardware, aprimorando habilidades em automação, controle e análise de sistemas, úteis para lidar com dados de sensores e aplicações multi-modais.",
+    "experienceDescription": "Atuei como desenvolvedor de software e analista de sistemas, participando do desenvolvimento e implantação de soluções escaláveis, com ênfase em automação, levantamento de requisitos para projetos de dados e integração de sistemas. Tenho experiência em ambientes ágeis e colaborativos, conduzindo implementações técnicas e suportando entregas em ambientes dinâmicos.",
+    "mainStack": "Python é minha linguagem principal para desenvolvimento de aplicações, com experiência em frameworks relevantes do ecossistema de Machine Learning, como scikit-learn. Também possuo vivência com ambientes Cloud (AWS, Azure) voltados ao deployment e automação.",
+    "projectDescription": "Desenvolvi uma plataforma para controle financeiro pessoal utilizando Python e Flutter, com backend integrado ao Firebase para armazenamento seguro de dados e análises automatizadas. Inclui funcionalidades de processamento de dados financeiros, geração de relatórios estatísticos e interface intuitiva para usuários finais.",
+    "projectName": "Aplicativo de Controle Financeiro",
+    "projectRepo": "https://github.com/fakeuser/finance-app",
+    "relevantStack": "Python, Firebase, automação de fluxos de dados, relatórios estatísticos."
 }
