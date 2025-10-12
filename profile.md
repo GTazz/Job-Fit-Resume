@@ -25,7 +25,7 @@ Tech Solutions Ltda | Jan 2022 - Atual
 **Analista de Sistemas**  
 InovaTI | Mar 2020 - Dez 2021  
 - Levantamento de requisitos com clientes  
-- Implementação de melhorias em sistemas legados  
+- Implementação de melhorias em sistemas legados
 - Suporte técnico e treinamento de usuários
 
 ## Ensino

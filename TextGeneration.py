@@ -165,15 +165,11 @@ Required Qualifications:
     Ability to work independently and manage priorities in a fast-paced environment.
     Availability to support meetings or calls outside standard working hours as needed.
 
- 
-
- 
 
 Preferred Skills:
 
     Experience with time-series demand forecasting, margin-aware modeling, text summarization, and stock-based recommendations.
     Exposure to multi-modal data and personalization strategies across digital ecosystems.
-
 
 We are seeking a highly capable Data Scientist to help build and scale enterprise-grade AI/ML products within our centralized Data Science team. This role focuses on developing intelligent, production-ready solutions that power personalization, forecasting, and automation across our digital platforms. The ideal candidate is a strong problem-solver, able to work independently, and comfortable supporting collaboration across time zones—including occasional calls outside standard working hours.
 """

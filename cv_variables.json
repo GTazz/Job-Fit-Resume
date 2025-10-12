@@ -1,10 +1,10 @@
 {
-    "collegeSkills": "O curso de Ciência da Computação forneceu sólida base em estatística, algoritmos, aprendizado de máquina e programação, essenciais para atuar em equipes de Data Science, além de familiaridade com métodos quantitativos utilizados na modelagem e previsão de dados.",
-    "courseSkills": "O curso técnico de Engenharia Mecatrônica proporcionou visão prática de integração entre software e hardware, aprimorando habilidades em automação, controle e análise de sistemas, úteis para lidar com dados de sensores e aplicações multi-modais.",
-    "experienceDescription": "Atuei como desenvolvedor de software e analista de sistemas, participando do desenvolvimento e implantação de soluções escaláveis, com ênfase em automação, levantamento de requisitos para projetos de dados e integração de sistemas. Tenho experiência em ambientes ágeis e colaborativos, conduzindo implementações técnicas e suportando entregas em ambientes dinâmicos.",
-    "mainStack": "Python é minha linguagem principal para desenvolvimento de aplicações, com experiência em frameworks relevantes do ecossistema de Machine Learning, como scikit-learn. Também possuo vivência com ambientes Cloud (AWS, Azure) voltados ao deployment e automação.",
-    "projectDescription": "Desenvolvi uma plataforma para controle financeiro pessoal utilizando Python e Flutter, com backend integrado ao Firebase para armazenamento seguro de dados e análises automatizadas. Inclui funcionalidades de processamento de dados financeiros, geração de relatórios estatísticos e interface intuitiva para usuários finais.",
-    "projectName": "Aplicativo de Controle Financeiro",
-    "projectRepo": "https://github.com/fakeuser/finance-app",
-    "relevantStack": "Python, Firebase, automação de fluxos de dados, relatórios estatísticos."
+    "collegeSkills": "Durante o Bacharelado em Ciência da Computação, aprofundei conhecimentos em desenvolvimento de software, estrutura de dados, algoritmos e soluções para problemas computacionais complexos. Experiência acadêmica com programação em Python, análise de dados e introdução a técnicas de Machine Learning.",
+    "courseSkills": "No curso técnico em Engenharia Mecatrônica, obtive base sólida em lógica, automação e integração de sistemas, além de experiência prática em resolução de problemas multidisciplinares.",
+    "experienceDescription": "Como Desenvolvedor Full Stack, participei da integração de APIs, implementação de testes automatizados e desenvolvimento de sistemas escaláveis em ambiente empresarial, com foco em soluções personalizáveis e eficientes.",
+    "mainStack": "Python, AWS, Azure, SQL, REST APIs",
+    "projectDescription": "Desenvolvi e mantive uma aplicação de gerenciamento de tarefas com autenticação segura, integração de banco de dados NoSQL e automação de rotinas, utilizando Python e Node.js.",
+    "projectName": "Gerenciador de Tarefas",
+    "projectRepo": "https://github.com/fakeuser/task-manager",
+    "relevantStack": "Tenho experiência em ambientes escaláveis de cloud computing (AWS, Azure), integração de APIs, automação de rotinas utilizando Python, e boa compreensão de metodologias ágeis, essenciais para projetos de Data Science. Competências: Python, AWS, Azure, SQL, Git, Testes Automatizados"
 }

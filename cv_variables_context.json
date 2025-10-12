@@ -1,10 +1,10 @@
 {
-  "mainStack": "...",
-  "projectName": "...",
-  "projectDescription": "...",
-  "projectRepo": "...",
-  "experienceDescription": "...",
-  "relevantStack": "...",
-  "collegeSkills": "...",
-  "courseSkills": "briefly talk about skills from Mechatronics course"
+  "mainStack": "main tech from profile matching job description. 5 at maximum (comma separated)",
+  "projectName": "Choose a project name from profile",
+  "projectDescription": "Adapt chosen project description, concise for job application",
+  "projectRepo": "Chosen project repository link",
+  "experienceDescription": "Adapt MAHLE experience description, concise for job application",
+  "relevantStack": "Briefly talk about relevant competences. Followed by a list of all competences from profile matching job description (comma separated)",
+  "collegeSkills": "Adapt Computer Science college experience description, concise for job application",
+  "courseSkills": "Adapt Mechatronics course experience description, concise for job application"
 }
