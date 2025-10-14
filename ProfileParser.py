@@ -3,19 +3,20 @@ import pandas as pd
 from pathlib import Path
 
 class ProfileParser:
-    DATA_DIR = Path("data")
+    DATA_DIR = Path("linkedin_data")
     CSV_FILES = {
-        'education': DATA_DIR / 'Education.csv',
-        'languages': DATA_DIR / 'Languages.csv',
-        'positions': DATA_DIR / 'Positions.csv',
-        'profile': DATA_DIR / 'Profile.csv',
-        'projects': DATA_DIR / 'Projects.csv',
-        'skills': DATA_DIR / 'Skills.csv'
+        'Education': DATA_DIR / 'Education.csv',
+        'Languages': DATA_DIR / 'Languages.csv',
+        'Positions': DATA_DIR / 'Positions.csv',
+        'Profile': DATA_DIR / 'Profile.csv',
+        'Projects': DATA_DIR / 'Projects.csv',
+        'Skills': DATA_DIR / 'Skills.csv'
     }
-        
+
     data = {}
     
     def __init__(self):
+        
         self.load_all_data()
         self.parse_to_structured_data()
     
@@ -31,12 +32,12 @@ class ProfileParser:
     def parse_to_structured_data(self):
         
         self.parsed_data = {
-            'personal_info': self.data.get('profile', pd.DataFrame()).to_dict('records'),
-            'experience': self.data.get('positions', pd.DataFrame()).to_dict('records'),
-            'education': self.data.get('education', pd.DataFrame()).to_dict('records'),
-            'skills': self.data.get('skills', pd.DataFrame()).to_dict('records'),
-            'projects': self.data.get('projects', pd.DataFrame()).to_dict('records'),
-            'languages': self.data.get('languages', pd.DataFrame()).to_dict('records')
+            'Education': self.data.get('Education', pd.DataFrame()).to_dict('records'),
+            'Languages': self.data.get('Languages', pd.DataFrame()).to_dict('records'),
+            'Positions': self.data.get('Positions', pd.DataFrame()).to_dict('records'),
+            'Profile': self.data.get('Profile', pd.DataFrame()).to_dict('records'),
+            'Projects': self.data.get('Projects', pd.DataFrame()).to_dict('records'),
+            'Skills': self.data.get('Skills', pd.DataFrame()).to_dict('records')
         }
         
     
