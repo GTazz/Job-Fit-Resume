@@ -3,6 +3,7 @@ import logging
 from dotenv import load_dotenv
 import json
 from openai import OpenAI, BadRequestError, AuthenticationError, RateLimitError
+from pathlib import Path
 
 
 class TextGeneration:
@@ -15,10 +16,17 @@ class TextGeneration:
         "o",
         "o-mini",
     ]  # Available model versions
-    _PROFILE_FILENAME: str = "profile.md"  # System prompt file
-    _VARIABLES_FILENAME: str = "cv_variables_context.json"  # CV variables and context file
-    _VARIABLES_OUTPUT_FILENAME: str = "cv_variables.json"  # CV variables output file
-    _TEMPLATE_FILENAME: str = "template.docx"  # Resume template file
+
+    DATA_DIR: Path = Path("data")
+    TEMPLATES_DIR: Path = Path("templates")
+    
+    PROFILE_FILENAME: Path = Path("profile.md")  # System prompt file
+    VARIABLES_FILENAME: Path = Path("cv_variables_context.json")  # CV variables and context file
+    VARIABLES_OUTPUT_FILENAME: Path = Path("cv_variables.json")  # CV variables output file
+
+    profile_path = DATA_DIR / PROFILE_FILENAME
+    variables_tools_path = TEMPLATES_DIR / VARIABLES_FILENAME
+    variables_output_path = DATA_DIR / VARIABLES_OUTPUT_FILENAME
 
     # General variables declaration
     user_prompt: str = ""  # User prompt
@@ -32,7 +40,9 @@ class TextGeneration:
     def __init__(self) -> None:
 
         # Configure logging level as INFO
-        logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+        logging.basicConfig(
+            level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s"
+        )
 
         # Loads .env file's environment variables, overriding existing values, if necessary
         load_dotenv(override=True)
@@ -42,7 +52,7 @@ class TextGeneration:
             base_url="https://models.github.ai/inference",
             api_key=os.getenv("AI_API_TOKEN"),
         )
-        
+
         logging.info("OpenAI client initialized.")
 
     def run(self, user_prompt: str = None) -> None:
@@ -57,7 +67,7 @@ class TextGeneration:
 
     def parse_prompt(self) -> None:
 
-        with open(self._PROFILE_FILENAME, "r", encoding="utf-8") as file:
+        with open(self.profile_path, "r", encoding="utf-8") as file:
             sys_prompt = file.read()
 
             user_prompt = f"JOB DESCRIPTION:\n\n{self.user_prompt}"
@@ -74,7 +84,7 @@ class TextGeneration:
 
     def parse_cv_functions(self) -> None:
 
-        with open(self._VARIABLES_FILENAME, "r", encoding="utf-8") as file:
+        with open(self.variables_tools_path, "r", encoding="utf-8") as file:
             raw_cv_variables = json.load(file)
 
         properties: dict = {}
@@ -119,18 +129,21 @@ class TextGeneration:
                 .message.tool_calls[0]
                 .function.arguments
             )
-        
+
             logging.info("AI response processed successfully.")
-            logging.info("Generated CV Variables:\n%s", json.dumps(self._processed_response, indent=4, ensure_ascii=False))
+            logging.info(
+                "Generated CV Variables:\n%s",
+                json.dumps(self._processed_response, indent=4, ensure_ascii=False),
+            )
 
         except RateLimitError:
             self._handle_rate_limit_error()
 
     def save_json_output(self) -> None:
-        with open(self._VARIABLES_OUTPUT_FILENAME, "w", encoding="utf-8") as file:
+        with open(self.variables_output_path, "w", encoding="utf-8") as file:
             json.dump(self._processed_response, file, indent=4, ensure_ascii=False)
-        
-        logging.info("CV variables saved to %s", self._VARIABLES_OUTPUT_FILENAME)
+
+        logging.info("CV variables saved to %s", self.VARIABLES_OUTPUT_FILENAME)
 
     def _handle_rate_limit_error(self) -> None:
         try:

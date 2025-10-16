@@ -1,0 +1,10 @@
+{
+    "collegeSkills": "Durante o bacharelado em Ciência da Computação, desenvolvi sólida base em programação Python, fundamentos de Machine Learning e análise de dados, além de experiência com projetos de mineração de dados e algoritmos avançados.",
+    "courseSkills": "O curso técnico em Mecatrônica aprimorou minha capacidade analítica e resolução de problemas utilizando tecnologias inovadoras e integração de sistemas automatizados.",
+    "experienceDescription": "Atuei como desenvolvedor full stack utilizando Python em aplicações escaláveis e modelagem de dados, com interface entre APIs e bancos de dados, além de projetos colaborativos focados em soluções eficientes.",
+    "mainStack": "Python, AWS, Azure, SQL, Git",
+    "projectDescription": "Implementação de um sistema de controle financeiro com Python e Firebase, incluindo integração de dados, autenticação, escalabilidade e testes automatizados.",
+    "projectName": "Aplicativo de Controle Financeiro",
+    "projectRepo": "https://github.com/fakeuser/finance-app",
+    "relevantStack": "Experiência em Python, manipulação de dados em bancos SQL e NoSQL, habilidades em cloud computing com AWS/Azure e integração de APIs. Competências relevantes: Python, AWS, Azure, SQL, Git, Machine Learning, APIs RESTful"
+}

@@ -3,7 +3,7 @@ import pandas as pd
 from pathlib import Path
 
 class ProfileParser:
-    DATA_DIR = Path("linkedin_data")
+    DATA_DIR = Path("data")
     CSV_FILES = {
         'Education': DATA_DIR / 'Education.csv',
         'Languages': DATA_DIR / 'Languages.csv',
