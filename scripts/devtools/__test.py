@@ -34,13 +34,12 @@ class Main():
     def get_scripts(self):
         """Get list of Python scripts in the scripts directory."""
         # Always use the scripts directory relative to the project root
-        project_root = Path(__file__).resolve().parent.parent
-        scripts_dir = project_root / "scripts"
+        self.project_root = Path(__file__).resolve().parent.parent.parent
+        scripts_dir = self.project_root / "scripts"
 
         scripts = []
-        for file in scripts_dir.glob("*.py"):
-            if not file.name.startswith("__"):
-                scripts.append(file.name)
+        for file in scripts_dir.glob("[!_]*.py"):
+            scripts.append(file.name)
 
         return sorted(scripts)
 
@@ -60,7 +59,6 @@ class Main():
 
     def run_script(self, script_name):
         """Run the selected script from the project root."""
-        project_root = Path(__file__).resolve().parent.parent
         module_name = script_name.replace(".py", "")
 
         print(f"\n{'='*50}")
@@ -71,7 +69,7 @@ class Main():
             # Run the script as a module from the project root
             subprocess.run(
                 [sys.executable, "-m", f"scripts.{module_name}"],
-                cwd=str(project_root),
+                cwd=str(self.project_root),
                 check=False,
             )
 

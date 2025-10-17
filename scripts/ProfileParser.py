@@ -54,5 +54,6 @@ class ProfileParser:
         pass
     
 if __name__ == "__main__":
+    # Testing
     PP = ProfileParser()
     logging.info(json.dumps(PP.parsed_data, indent=2, ensure_ascii=False))

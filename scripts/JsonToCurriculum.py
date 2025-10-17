@@ -97,5 +97,5 @@ class JsonToCurriculum:
 
 
 if __name__ == "__main__":
-
+    # Testing
     JsonToCurriculum()

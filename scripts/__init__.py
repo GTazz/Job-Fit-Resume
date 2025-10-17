@@ -1,5 +1,7 @@
-from .ExtractCSV import *
-from .JsonToCurriculum import *
-from .ProfileParser import *
-from scripts.TextGeneration import *
-from .ProfileBuilder import *
+# Auto-generated imports by __generate_imports.py
+
+from .ProfileBuilder import ProfileBuilder
+from .ExtractCSV import ExtractCSV
+from .ProfileParser import ProfileParser
+from .TextGeneration import TextGeneration
+from .JsonToCurriculum import JsonToCurriculum

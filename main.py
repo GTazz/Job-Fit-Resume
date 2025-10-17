@@ -1,4 +1,6 @@
 from scripts import *
 
 if __name__ == "__main__":
-    tg = JsonToCurriculum
+    ExtCSV = ExtractCSV()
+    ExtCSV.find_zip_file()
+    ExtCSV.run()

@@ -147,6 +147,7 @@ class TextGeneration:
 
 
 if __name__ == "__main__":
+    # Testing
     TG = TextGeneration()
     TG.user_prompt = """
 Sobre a vaga

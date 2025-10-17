@@ -1,7 +1,7 @@
 import os
+from pathlib import Path
 from dotenv import load_dotenv
 import logging
-from pathlib import Path
 
 # ==== PATHS ====
 
