@@ -1,34 +1,44 @@
 import json
 import pandas as pd
-from pathlib import Path
+from .__config import (
+    EDUCATION_CSV,
+    LANGUAGES_CSV,
+    POSITIONS_CSV,
+    PROFILE_CSV,
+    PROJECTS_CSV,
+    SKILLS_CSV, 
+    logging
+)
 
 class ProfileParser:
-    DATA_DIR = Path("data")
     CSV_FILES = {
-        'Education': DATA_DIR / 'Education.csv',
-        'Languages': DATA_DIR / 'Languages.csv',
-        'Positions': DATA_DIR / 'Positions.csv',
-        'Profile': DATA_DIR / 'Profile.csv',
-        'Projects': DATA_DIR / 'Projects.csv',
-        'Skills': DATA_DIR / 'Skills.csv'
+        'Education': EDUCATION_CSV,
+        'Languages': LANGUAGES_CSV,
+        'Positions': POSITIONS_CSV,
+        'Profile': PROFILE_CSV,
+        'Projects': PROJECTS_CSV,
+        'Skills': SKILLS_CSV
     }
 
     data = {}
+    parsed_data = {}
+    structured_data = {}
     
     def __init__(self):
         
         self.load_all_data()
         self.parse_to_structured_data()
+        self.restructured_data()
     
     def load_all_data(self):
 
         for name, filepath in self.CSV_FILES.items():
             if filepath.exists():
                 self.data[name] = pd.read_csv(filepath)
-                print(f"Loaded {name}: {len(self.data[name])} records")
+                logging.info(f"Loaded {name}: {len(self.data[name])} records")
             else:
-                print(f"File not found: {filepath}")
-    
+                logging.warning(f"File not found: {filepath}")
+
     def parse_to_structured_data(self):
         
         self.parsed_data = {
@@ -39,8 +49,10 @@ class ProfileParser:
             'Projects': self.data.get('Projects', pd.DataFrame()).to_dict('records'),
             'Skills': self.data.get('Skills', pd.DataFrame()).to_dict('records')
         }
-        
+
+    def restructured_data(self):
+        pass
     
 if __name__ == "__main__":
     PP = ProfileParser()
-    print(json.dumps(PP.parsed_data, indent=2, ensure_ascii=False))
+    logging.info(json.dumps(PP.parsed_data, indent=2, ensure_ascii=False))

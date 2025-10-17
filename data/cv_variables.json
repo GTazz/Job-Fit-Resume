@@ -1,10 +1,10 @@
 {
-    "collegeSkills": "Durante o bacharelado em Ciência da Computação, desenvolvi sólida base em programação Python, fundamentos de Machine Learning e análise de dados, além de experiência com projetos de mineração de dados e algoritmos avançados.",
-    "courseSkills": "O curso técnico em Mecatrônica aprimorou minha capacidade analítica e resolução de problemas utilizando tecnologias inovadoras e integração de sistemas automatizados.",
-    "experienceDescription": "Atuei como desenvolvedor full stack utilizando Python em aplicações escaláveis e modelagem de dados, com interface entre APIs e bancos de dados, além de projetos colaborativos focados em soluções eficientes.",
+    "collegeSkills": "Graduação em Ciência da Computação pela UFRJ, com sólida base em programação, estatística e projetos práticos voltados para o desenvolvimento em inteligência artificial e ciência de dados.",
+    "courseSkills": "Curso Técnico em Engenharia Mecatrônica no SENAI com foco em automação, integração de sistemas e solução de problemas multidisciplinares.",
+    "experienceDescription": "Atuação como Desenvolvedor Full Stack aplicando Python e integração de soluções em nuvem (AWS, Azure), com experiência em manipulação de dados, automação de sistemas e colaboração em equipes utilizando metodologias ágeis.",
     "mainStack": "Python, AWS, Azure, SQL, Git",
-    "projectDescription": "Implementação de um sistema de controle financeiro com Python e Firebase, incluindo integração de dados, autenticação, escalabilidade e testes automatizados.",
-    "projectName": "Aplicativo de Controle Financeiro",
-    "projectRepo": "https://github.com/fakeuser/finance-app",
-    "relevantStack": "Experiência em Python, manipulação de dados em bancos SQL e NoSQL, habilidades em cloud computing com AWS/Azure e integração de APIs. Competências relevantes: Python, AWS, Azure, SQL, Git, Machine Learning, APIs RESTful"
+    "projectDescription": "Plataforma desenvolvida para automação de integração de dados utilizando Python e serviços em nuvem, focada em escalabilidade e eficiência, com práticas de testes automatizados e segurança de dados.",
+    "projectName": "Gerenciador de Tarefas",
+    "projectRepo": "https://github.com/fakeuser/task-manager",
+    "relevantStack": "Experiência sólida em desenvolvimento e integração de workflows escaláveis, deployment em cloud (AWS, Azure), codificação eficiente em Python. Competências: Python, AWS, Azure, SQL, Git"
 }

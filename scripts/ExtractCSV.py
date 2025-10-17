@@ -1,7 +1,7 @@
 import os
 import zipfile
 from pathlib import Path
-
+from .__config import DATA_DIR, logging
 
 class ExtractCSV:
 
@@ -14,20 +14,17 @@ class ExtractCSV:
         "projects.csv",
     ]
 
-    DATA_DIR: Path = Path("data")
     zip_path: Path = None
 
     def __init__(self):
         pass
 
     def find_zip_file(self) -> Path:
-
-        self.zip_path = next(self.DATA_DIR.glob("*.zip"), None)
+        self.zip_path = next(DATA_DIR.glob("*.zip"), None)
         if self.zip_path:
-            self.zip_path = self.zip_path  # Path is fine for zipfile.ZipFile
-            print(f"Found ZIP: {self.zip_path}")
+            logging.info(f"Found ZIP: {self.zip_path}")
         else:
-            print("No .zip file found in data/")
+            logging.warning(f"No .zip file found in {DATA_DIR.name}/")
 
     def run(self):
 
@@ -40,16 +37,16 @@ class ExtractCSV:
                     file_name = os.path.basename(file).lower()
                     if file_name in self.FILES_NAMES:
                         try:
-                            zip_ref.extract(file, self.DATA_DIR)
-                            print(f"✓ Extracted: {file}")
+                            zip_ref.extract(file, DATA_DIR)
+                            logging.info(f"✓ Extracted: {file}")
                         except Exception as e:
-                            print(f"✗ Error extracting {file}: {e}")
+                            logging.error(f"✗ Error extracting {file}: {e}")
 
             # delete file after extraction
         except zipfile.BadZipFile:
-            print("Error: ZIP file is corrupted or invalid.")
+            logging.error("Error: ZIP file is corrupted or invalid.")
         except Exception:
-            print(f"Error: File {self.zip_path} not found.")
+            logging.error(f"Error: File {self.zip_path} not found.")
         finally:
             if self.zip_path:
                 os.remove(self.zip_path)
