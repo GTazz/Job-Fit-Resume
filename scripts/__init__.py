@@ -1,7 +1,7 @@
-# Auto-generated imports by __generate_imports.py
+from .__imports import *
+import os as _os
 
-from .ProfileBuilder import ProfileBuilder
-from .ExtractCSV import ExtractCSV
-from .ProfileParser import ProfileParser
-from .TextGeneration import TextGeneration
-from .JsonToCurriculum import JsonToCurriculum
+# create dirs (output, data, templates) if not exists
+_os.makedirs("output", exist_ok=True)
+_os.makedirs("data", exist_ok=True)
+_os.makedirs("templates", exist_ok=True)

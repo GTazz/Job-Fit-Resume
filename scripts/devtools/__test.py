@@ -33,7 +33,7 @@ class Main():
     
     def get_scripts(self):
         """Get list of Python scripts in the scripts directory."""
-        # Always use the scripts directory relative to the project root
+
         self.project_root = Path(__file__).resolve().parent.parent.parent
         scripts_dir = self.project_root / "scripts"
 
