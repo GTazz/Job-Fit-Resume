@@ -42,7 +42,7 @@ class ExtractCSV:
                         except Exception as e:
                             logging.error(f"✗ Error extracting {file}: {e}")
 
-            # delete file after extraction
+        # delete file after extraction
         except zipfile.BadZipFile:
             logging.error("Error: ZIP file is corrupted or invalid.")
         except Exception:

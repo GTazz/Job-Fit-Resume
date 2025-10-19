@@ -9,7 +9,7 @@ from .__config import (
 )
 
 
-class TextGeneration:
+class GenerateAIText:
 
     # Constant variables:
     _MODELS: list[str] = [
@@ -148,8 +148,8 @@ class TextGeneration:
 
 if __name__ == "__main__":
     # Testing
-    TG = TextGeneration()
-    TG.user_prompt = """
+    Gen_AI = GenerateAIText()
+    Gen_AI.user_prompt = """
 Sobre a vaga
 
 Required Qualifications:
@@ -171,4 +171,4 @@ Preferred Skills:
 
 We are seeking a highly capable Data Scientist to help build and scale enterprise-grade AI/ML products within our centralized Data Science team. This role focuses on developing intelligent, production-ready solutions that power personalization, forecasting, and automation across our digital platforms. The ideal candidate is a strong problem-solver, able to work independently, and comfortable supporting collaboration across time zones—including occasional calls outside standard working hours.
 """
-    TG.run()
+    Gen_AI.run()
