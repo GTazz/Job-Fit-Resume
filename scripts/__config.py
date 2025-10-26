@@ -7,26 +7,31 @@ import logging
 
 # Directories
 DATA_DIR = Path("data")
+INPUT_DIR = Path("input")
 OUTPUT_DIR = Path("output")
 TEMPLATES_DIR = Path("templates")
 TEMP_DIR = Path("temp")
 
-# Files - ProfileParser
+# Files - ParseCSV
 EDUCATION_CSV = DATA_DIR / "Education.csv"
 LANGUAGES_CSV = DATA_DIR / "Languages.csv"
 POSITIONS_CSV = DATA_DIR / "Positions.csv"
 PROFILE_CSV = DATA_DIR / "Profile.csv"
 PROJECTS_CSV = DATA_DIR / "Projects.csv"
 SKILLS_CSV = DATA_DIR / "Skills.csv"
+PARSED_DATA_JSON = DATA_DIR / "profile.json"
 
-# Files - ProfileBuilder / TextGeneration
+# Files - BuildProfile
+PROFILE_TEMPLATE_MD = TEMPLATES_DIR / "profile_template.md"
+
+# Files - BuildProfile / GenerateAIText
 PROFILE_MD = DATA_DIR / "profile.md"
 
-# Files - TextGeneration
-CV_VARIABLES_CONTEXT_JSON = TEMPLATES_DIR / "cv_variables_context.json"
+# Files - GenerateAIText
+CV_VARIABLES_CONTEXT_JSON = TEMPLATES_DIR / "template.json"
 
-# Files - TextGeneration / JsonToCurriculum
-CV_VARIABLES_JSON = DATA_DIR / "cv_variables.json"
+# Files - GenerateAIText / JsonToCurriculum
+CV_VARIABLES_JSON = OUTPUT_DIR / "final_cv.json"
 
 # Files - JsonToCurriculum
 TEMPLATE_DOCX = TEMPLATES_DIR / "template.docx"
@@ -40,7 +45,6 @@ FINAL_CV_PDF = OUTPUT_DIR / "final_cv.pdf"
 logging.basicConfig(
     level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s"
 )
-
 
 # ==== LOAD .env ====
 
