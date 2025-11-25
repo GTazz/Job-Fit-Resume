@@ -23,20 +23,14 @@ class ParseCSV:
 
     # Desired fields per section (using itemgetter)
     _DESIRED_FIELDS = {
-        "Education": [
-            "School Name",
-            "Start Date",
-            "End Date",
-            "Degree Name",
-            "Activities",
-        ],
         "Languages": True,  # True = keep all fields
+        "Education": True,
         "Positions": [
             "Company Name",
             "Title",
             "Description",
             "Started On",
-            "Finished On",
+            "Finished On"
         ],
         "Projects": ["Title", "Description"],
         "Skills": True,

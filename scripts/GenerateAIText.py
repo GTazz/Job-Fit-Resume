@@ -44,12 +44,12 @@ class GenerateAIText:
         self.user_prompt = self.user_prompt if user_prompt is None else user_prompt
 
         # Sequential execution of steps
-        self.parse_prompt()
-        self.parse_cv_functions()
-        self.ai_request()
-        self.save_json_output()
+        self._parse_prompt()
+        self._parse_cv_functions()
+        self._ai_request()
+        self._save_json_output()
 
-    def parse_prompt(self) -> None:
+    def _parse_prompt(self) -> None:
 
         with open(PROFILE_MD, "r", encoding="utf-8") as file:
             sys_prompt = file.read()
@@ -66,7 +66,7 @@ class GenerateAIText:
                 },
             ]
 
-    def parse_cv_functions(self) -> None:
+    def _parse_cv_functions(self) -> None:
 
         with open(CV_VARIABLES_CONTEXT_JSON, "r", encoding="utf-8") as file:
             raw_cv_variables = json.load(file)
@@ -95,7 +95,7 @@ class GenerateAIText:
             }
         ]
 
-    def ai_request(self) -> None:
+    def _ai_request(self) -> None:
         try:
             logging.info("Using model %s", self._model)
 
@@ -123,7 +123,7 @@ class GenerateAIText:
         except RateLimitError:
             self._handle_rate_limit_error()
 
-    def save_json_output(self) -> None:
+    def _save_json_output(self) -> None:
         with open(CV_VARIABLES_JSON, "w", encoding="utf-8") as file:
             json.dump(self._processed_response, file, indent=4, ensure_ascii=False)
 
@@ -140,7 +140,7 @@ class GenerateAIText:
 
             logging.warning("Changed to model %s.", self._model)
 
-            self.ai_request()
+            self._ai_request()
 
         except IndexError:
             logging.error("All models have been exhausted.")

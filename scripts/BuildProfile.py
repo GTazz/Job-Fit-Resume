@@ -1,5 +1,5 @@
 class BuildProfile:
-    def __init__(self):
+    def __init__(self, data, debug=False):
         pass
 
 
