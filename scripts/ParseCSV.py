@@ -30,7 +30,7 @@ class ParseCSV:
             "Title",
             "Description",
             "Started On",
-            "Finished On"
+            "Finished On",
         ],
         "Projects": ["Title", "Description"],
         "Skills": True,
@@ -41,7 +41,7 @@ class ParseCSV:
         self._debug = debug
 
         data = self._filter_data(data)
-        self.data = self._parse_data(data)
+        self.data = self._flatten_data(data)
         if self._debug:
             self._save_parsed_data()
 
@@ -61,10 +61,40 @@ class ParseCSV:
 
         return self.filtered_data
 
-    def _parse_data(self, data):
-        # Placeholder for any additional parsing logic
+    def _flatten_data(self, data):
+
+        # Flatten Languages into "Name | Proficiency"
+        if languages := data.get("Languages", None):
+            for i, language in enumerate(languages):
+                languages[i] = language.get("Name")
+                if proficiency := language.get("Proficiency", None):
+                    languages[i] += " | " + proficiency
+
+        # Combine start and end date into 'Duration' for Positions and Education
+        for field in (
+            ("Positions", "Started On", "Finished On"),
+            ("Education", "Start Date", "End Date"),
+        ):
+
+            if positions := data.get(field[0], None):
+                for position in positions:
+                    start = position.pop(field[1], None)
+                    finish = position.pop(field[2], None)
+
+                    if start and finish:
+                        position["Duration"] = f"{start} - {finish}"
+                    elif not start:
+                        position["Duration"] = "Unknown"
+                    else:
+                        position["Duration"] = f"{start} - Present"
+
+        # Flatten Skills into a list of skill names
+        data["Skills"] = [
+            skill.get("Name", []) for skill in data.get("Skills", []) if skill
+        ]
+
         return data
-    
+
     def _save_parsed_data(self):
         try:
             with open(PARSED_DATA_JSON, "w", encoding="utf-8") as f:
@@ -77,8 +107,9 @@ class ParseCSV:
 
 if __name__ == "__main__":
     from .ExtractCSV import ExtractCSV
+
     debug = True
-    
+
     # Testing
     E_CSV = ExtractCSV(debug=debug)
     P_CSV = ParseCSV(data=E_CSV.data, debug=debug)
