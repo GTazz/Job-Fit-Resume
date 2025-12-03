@@ -63,6 +63,9 @@ class ParseCSV:
 
     def _flatten_data(self, data):
 
+        # Combine First Name and Last Name into Full Name
+        data["Profile"][0]["Full Name"] = f"{data['Profile'][0].pop("First Name")} {data["Profile"][0].pop("Last Name", "")}".strip()
+
         # Flatten Languages into "Name | Proficiency"
         if languages := data.get("Languages", None):
             for i, language in enumerate(languages):
@@ -75,16 +78,15 @@ class ParseCSV:
             ("Positions", "Started On", "Finished On"),
             ("Education", "Start Date", "End Date"),
         ):
-
             if positions := data.get(field[0], None):
                 for position in positions:
-                    start = position.pop(field[1], None)
-                    finish = position.pop(field[2], None)
+                    start = position.pop(field[1], "N/A")
+                    finish = position.pop(field[2], "N/A")
 
-                    if start and finish:
+                    if start != "N/A" and finish != "N/A":
                         position["Duration"] = f"{start} - {finish}"
-                    elif not start:
-                        position["Duration"] = "Unknown"
+                    elif start == "N/A":
+                        position["Duration"] = "N/A"
                     else:
                         position["Duration"] = f"{start} - Present"
 

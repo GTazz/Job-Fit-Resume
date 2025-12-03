@@ -208,10 +208,6 @@ __marimo__/
 
 # Project related
 temp/
-input/*.zip
-data/*.csv
-data/*.md
-data/*.json
-output/*.docx
-output/*.pdf
-output/*.json
+input/*
+data/*
+output/*

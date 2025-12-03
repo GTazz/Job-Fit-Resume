@@ -27,7 +27,7 @@ class GenerateAIText:
     _client: OpenAI = None  # OpenAI client
     _messages: list[dict[str, str]] = []  # List of messages (system + user)
     _tools: list[dict] = []  # List of tools (functions) available to the AI
-    _processed_response: dict[str] = {}  # Raw AI response
+    ai_response: dict[str] = {}  # Raw AI response
 
     def __init__(self) -> None:
 
@@ -54,17 +54,17 @@ class GenerateAIText:
         with open(PROFILE_MD, "r", encoding="utf-8") as file:
             sys_prompt = file.read()
 
-            user_prompt = f"JOB DESCRIPTION:\n\n{self.user_prompt}"
-            self._messages = [
-                {
-                    "role": "system",
-                    "content": sys_prompt,
-                },
-                {
-                    "role": "user",
-                    "content": user_prompt,
-                },
-            ]
+        user_prompt = f"# Job Description\n{self.user_prompt}"
+        self._messages = [
+            {
+                "role": "system",
+                "content": sys_prompt,
+            },
+            {
+                "role": "user",
+                "content": user_prompt,
+            },
+        ]
 
     def _parse_cv_functions(self) -> None:
 
@@ -85,7 +85,7 @@ class GenerateAIText:
                 "type": "function",
                 "function": {
                     "name": "CVTexts",
-                    "description": "Given a job description, generate tailored resume content highlighting only genuine qualifications from the candidate's profile that directly match the job requirements. Focus on the most essential and impactful alignments (never fabricate qualifications).",
+                    "description": "Given a Job Description, generate tailored resume content highlighting only genuine qualifications from the User's Data that directly match the job requirements. Focus on the most essential and impactful alignments. NEVER include qualifications present in Job Description but not contained in the User's Data and Skills field!",
                     "parameters": {
                         "type": "object",
                         "properties": properties,
@@ -99,15 +99,15 @@ class GenerateAIText:
         try:
             logging.info("Using model %s", self._model)
 
-            self._processed_response = json.loads(
+            self.ai_response = json.loads(
                 self._client.chat.completions.create(
                     messages=self._messages,
                     tools=self._tools,
                     # always activate a function to combine the responses
                     tool_choice={"type": "function", "function": {"name": "CVTexts"}},
-                    temperature=1,  # Grau de criatividade (quanto maior, mais criativo)
-                    top_p=1,  # Probabilidade acumulada para amostragem (nucleus sampling)
-                    model=self._model,  # Modelo escolhido
+                    temperature=0,  # Range: 0 to 2, the lower the value, the more focused and deterministic the output
+                    top_p=0.9,  # Range: 0 to 1, the lower the value, the more restricted the output words 
+                    model=self._model,  # Model version
                 )
                 .choices[0]
                 .message.tool_calls[0]
@@ -117,7 +117,7 @@ class GenerateAIText:
             logging.info("AI response processed successfully.")
             logging.info(
                 "Generated CV Variables:\n%s",
-                json.dumps(self._processed_response, indent=4, ensure_ascii=False),
+                json.dumps(self.ai_response, indent=4, ensure_ascii=False),
             )
 
         except RateLimitError:
@@ -125,7 +125,7 @@ class GenerateAIText:
 
     def _save_json_output(self) -> None:
         with open(CV_VARIABLES_JSON, "w", encoding="utf-8") as file:
-            json.dump(self._processed_response, file, indent=4, ensure_ascii=False)
+            json.dump(self.ai_response, file, indent=4, ensure_ascii=False)
 
         logging.info("CV variables saved to %s", CV_VARIABLES_JSON.name)
 

@@ -46,8 +46,8 @@ class ExtractCSV:
                         try:
                             with zip_ref.open(file, "r") as f:
                                 df = pd.read_csv(f)
-                                # Replace NaN/NA with Python None for consistency
-                                df = df.where(pd.notna(df), None)
+                                # Replace NaN/NA with N/A for consistency
+                                df = df.where(pd.notna(df), "N/A")
                                 name = file_name[:-4].capitalize()
                                 data[name] = df.to_dict("records")
                                 logging.info(f"✓ Loaded into memory: {file} -> {name}")

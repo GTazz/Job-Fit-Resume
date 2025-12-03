@@ -23,14 +23,15 @@ class JsonToCurriculum:
       5. convert_to_pdf
       6. log_summary
     """
-    
+
     cv_variables: Dict[str, Any] = {}
     template: DocxTemplate = None
 
-    def __init__(self) -> None:
+    def __init__(self, cv_variables: dict, debug: bool = False) -> None:
+        self.cv_variables = cv_variables
 
         # Sequential execution of steps
-        self.load_cv_variables()
+        # self.load_cv_variables()
         self.load_template()
         self.special_variables()
         self.render_template()

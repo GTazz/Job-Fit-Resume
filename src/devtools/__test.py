@@ -32,10 +32,10 @@ class Main():
                 break
     
     def get_scripts(self):
-        """Get list of Python scripts in the scripts directory."""
+        """Get list of Python scripts in the src directory."""
 
         self.project_root = Path(__file__).resolve().parent.parent.parent
-        scripts_dir = self.project_root / "scripts"
+        scripts_dir = self.project_root / "src"
 
         scripts = []
         for file in scripts_dir.glob("[!_]*.py"):
@@ -68,7 +68,7 @@ class Main():
         try:
             # Run the script as a module from the project root
             subprocess.run(
-                [sys.executable, "-m", f"scripts.{module_name}"],
+                [sys.executable, "-m", f"src.{module_name}"],
                 cwd=str(self.project_root),
                 check=False,
             )
